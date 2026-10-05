@@ -1,0 +1,44 @@
+manifestVersion: 1.1
+id: pyblock-datum-experimental
+category: bitcoin
+name: DATUM WAVICLES
+version: "v0.4.1-beta-8"
+icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/icon.svg
+tagline: Self-sovereign Bitcoin mining
+description: >-
+  ⚙️ PyBLOCK WAVICLES
+
+developer: PyBLOCK Crew
+website: https://b.pyblock.xyz:8443
+dependencies:
+  - bitcoin
+repo: https://github.com/OCEAN-xyz/datum_gateway
+support: https://ocean.xyz
+port: 21010
+gallery:
+  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/1.jpg
+  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/2.jpg
+  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/3.jpg
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true
+releaseNotes: >-
+  Update to the latest upstream commit - ac9b70c
+widgets:
+  - id: "stats"
+    type: "three-stats"
+    refresh: "30s"
+    endpoint: "datum:21010/umbrel-api"
+    link: ""
+    example:
+      type: "three-stats"
+      link: ""
+      items:
+        - title: "Connections"
+          text: "12"
+          subtext: "Worker"
+        - title: "Hashrate"
+          text: "21"
+          subtext: "TH/s"
+submitter: PyBLOCK Crew
+submission: https://github.com/
