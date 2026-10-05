@@ -1,5 +1,5 @@
 manifestVersion: 1.1
-id: btc-bitcoinknots
+id: pyblock-bitcoinknots
 category: bitcoin
 name: Bitcoin Knots
 implements:
@@ -8,23 +8,14 @@ version: "1.2.20"
 tagline: Run your personal node powered by Bitcoin Knots
 icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/bitcoin-knots/icon.svg
 description: >-
-  Take control of your digital sovereignty by choosing Bitcoin Knots to run your node! By using Knots, you’re supporting a version of Bitcoin that prioritizes efficiency, security, and flexibility. With Bitcoin Knots’ enhanced configuration options, you can fine-tune your node to help keep the network clean and resilient, actively reducing unnecessary load from spam or parasitic transactions.
+  PyBLOCK Knots Test.
 
 
-  Every node strengthens the Bitcoin network, and your decision to use Bitcoin Knots contributes directly to a more decentralized and spam-resistant ecosystem. Your node not only validates and secures transactions but also sets an example for a more sustainable, user-focused Bitcoin network.
-
-
-  Welcome to the community of Bitcoin Knots users, and thank you for helping Bitcoin grow stronger!
-
-
-  Here's a guide on how to move the blockchain from bitcoin core to knots: https://docs.mempool.guide/page/migrationumbrel.html
-
-
-  To forward incoming peer traffic to your device, set up the following configuration: (router) 9333 -> (device) 9333
+  To forward incoming peer traffic to your device, set up the following configuration: (router) 9333 -> (device) 9333.
 
 
   Powered by Bitcoin Knots: https://bitcoinknots.org/
-developer: Horizon BTC
+developer: PyBLOCK Crew
 website: https://bitcoinknots.org
 dependencies: []
 repo: https://github.com/bitcoinknots/bitcoin.git
@@ -37,7 +28,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix default policy for rejecttokens
+  PyBLOCK
 widgets:
   - id: "stats"
     type: "four-stats"
@@ -88,5 +79,5 @@ backupIgnore:
   - data/bitcoin/regtest/blocks
   - data/bitcoin/regtest/chainstate
   - data/bitcoin/regtest/indexes
-submitter: Léo Haf
-submission: https://github.com/getumbrel/umbrel-apps/pull/953
+submitter: PyBLOCK Knots Test
+submission: https://github.com/
