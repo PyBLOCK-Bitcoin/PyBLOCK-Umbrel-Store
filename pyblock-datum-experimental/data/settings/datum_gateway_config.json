@@ -10,9 +10,9 @@
     "admin_password": "umbrel"
   },
   "mining": {
-    "pool_address": "YOUR_BLAKE2B_ADDRESS",
+    "pool_address": "",
     "coinbase_tag_primary": "PyBLOCK WAVICLES",
-    "coinbase_tag_secondary": "YOUR_NAME",
+    "coinbase_tag_secondary": "PyBLOCK WAVICLES",
     "pow_algorithm": "blake2b"
   },
   "stratum": {
