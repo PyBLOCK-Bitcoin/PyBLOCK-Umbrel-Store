@@ -7,6 +7,9 @@ icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads
 tagline: Self-sovereign Bitcoin mining
 description: >-
   ⚙️ PyBLOCK WAVICLES
+  
+  Use your umbrelOS device’s IP address (found in Settings on the umbrelOS home screen) and port 23340.
+  e.g., stratum+tcp://192.168.4.56:23340
 
 developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443
