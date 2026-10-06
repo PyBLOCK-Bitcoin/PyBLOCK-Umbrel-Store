@@ -1,24 +1,24 @@
 manifestVersion: 1.1
 id: pyblock-bitcoinknots
 category: bitcoin
-name: Patum
+name: Patum Node
 implements:
   - bitcoin
-version: "1.2.20"
+version: "1.0.0"
 tagline: Run your XBT personal Node powered by PyBLOCK Crew and Bitcoin Knots
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
-  PyBLOCK PATUM-Knots.
+  PyBLOCK PATUM Node.
 
   By default, PyBLOCK uses a Node policy that aligns with our principles: 0 SPAM.
 
   To forward incoming peer traffic to your device, set up the following configuration: (router) 9333 -> (device) 9333.
 
-  Powered by PyBLOCK Crew and Bitcoin Knots: https://bitcoinknots.org/
+  Powered by PyBLOCK Crew and Bitcoin Knots: https://b.pyblock.xyz:8443 https://bitcoinknots.org/
 developer: PyBLOCK Crew
-website: https://bitcoinknots.org
+website: https://b.pyblock.xyz:8443
 dependencies: []
-repo: https://github.com/bitcoinknots/bitcoin.git
+repo: https://github.com/PyBLOCK-Bitcoin/PyBLOCK-Umbrel-Store/
 support: https://t.me/pyblockpool
 port: 2113
 gallery:
@@ -47,7 +47,7 @@ widgets:
           subtext: "MB"
         - title: "Hashrate"
           text: "590"
-          subtext: "EH/s"
+          subtext: "TH/s"
         - title: "Blockchain size"
           text: "600"
           subtext: "GB"
