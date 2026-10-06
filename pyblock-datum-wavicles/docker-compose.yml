@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: pyblock-datum-experimental_datum_1
+      APP_HOST: pyblock-datum-wavicles_datum_1
       APP_PORT: 21010
 
   datum:
