@@ -5,7 +5,7 @@ name: Patum Node
 implements:
   - bitcoin
 version: "1.0.0"
-tagline: Run your XBT Blake2b personal Node powered by PyBLOCK Crew and Bitcoin Knots
+tagline: PyBLOCK Crew
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
   PyBLOCK PATUM Node.
