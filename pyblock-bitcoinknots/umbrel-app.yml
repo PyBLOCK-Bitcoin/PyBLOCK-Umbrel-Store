@@ -30,7 +30,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  PyBLOCK Crew
+  PyBLOCK Crew Patun-Node
 widgets:
   - id: "stats"
     type: "four-stats"
