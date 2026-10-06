@@ -5,12 +5,14 @@ name: Patum Node
 implements:
   - bitcoin
 version: "1.0.0"
-tagline: Run your XBT personal Node powered by PyBLOCK Crew and Bitcoin Knots
+tagline: Run your XBT Blake2b personal Node powered by PyBLOCK Crew and Bitcoin Knots
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
   PyBLOCK PATUM Node.
 
   By default, PyBLOCK uses a Node policy that aligns with our principles: 0 SPAM.
+
+  The matching switches in Settings won't override it.
 
   To forward incoming peer traffic to your device, set up the following configuration: (router) 9333 -> (device) 9333.
 
