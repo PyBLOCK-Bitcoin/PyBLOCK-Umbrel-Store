@@ -4,7 +4,7 @@ category: bitcoin
 name: CHIRP
 version: "v0.4.1-beta-8"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-chirp.svg
-tagline: Self-sovereign XBT mining
+tagline: PyBLOCK Crew CHIRP, Port 23339
 description: >-
   ⚙️ PyBLOCK CHIRP, Port 23339
 
