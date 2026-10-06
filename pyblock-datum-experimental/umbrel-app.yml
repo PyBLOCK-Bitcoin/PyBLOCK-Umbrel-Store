@@ -1,7 +1,7 @@
 manifestVersion: 1.1
 id: pyblock-datum-experimental
 category: bitcoin
-name: DATUM WAVICLES
+name: WAVICLES
 version: "v0.4.1-beta-8"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-wavicles.svg
 tagline: Self-sovereign XBT mining
@@ -20,17 +20,17 @@ website: https://b.pyblock.xyz:8443
 dependencies:
   - bitcoin
 repo: https://b.pyblock.xyz:8443
-support: https://b.pyblock.xyz:8443
+support: https://t.me/pyblockpool
 port: 21010
 gallery:
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/1.jpg
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/2.jpg
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/3.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/2.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/3.jpg
 path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  PyBLOCK Crew
+  PyBLOCK Crew Wavicles
 widgets:
   - id: "stats"
     type: "three-stats"
@@ -48,4 +48,4 @@ widgets:
           text: "21"
           subtext: "TH/s"
 submitter: PyBLOCK Crew
-submission: https://github.com/
+submission: https://t.me/pyblockpool
