@@ -5,7 +5,7 @@ name: PATUM Node
 implements:
   - bitcoin
 version: "1.0.0"
-tagline: PyBLOCK Crew PATUM Node
+tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
   PyBLOCK PATUM Node.
@@ -30,7 +30,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  PyBLOCK Crew Patun-Node
+  PyBLOCK Crew Patum Node
 widgets:
   - id: "stats"
     type: "four-stats"
