@@ -20,17 +20,17 @@ website: https://b.pyblock.xyz:8443
 dependencies:
   - bitcoin
 repo: https://b.pyblock.xyz:8443
-support: https://b.pyblock.xyz:8443
+support: https://t.me/pyblockpool
 port: 21008
 gallery:
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/1.jpg
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/2.jpg
-  - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/3.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/carousel/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/carousel/2.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/carousel/3.jpg
 path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  PyBLOCK Crew
+  PyBLOCK Crew Carousel
 widgets:
   - id: "stats"
     type: "three-stats"
@@ -48,4 +48,4 @@ widgets:
           text: "21"
           subtext: "TH/s"
 submitter: PyBLOCK Crew
-submission: https://github.com/
+submission: https://t.me/pyblockpool
