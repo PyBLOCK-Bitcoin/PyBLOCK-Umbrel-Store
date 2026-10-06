@@ -25,7 +25,7 @@ services:
       # BITCOIND BINARY SETTINGS
       # BITCOIND_BIN: bitcoind-binary-path-override
       # comma-delimited list of extra startup flags to pass to bitcoind
-      BITCOIND_EXTRA_ARGS: '-deprecatedrpc=create_bdb,-blockreservedweight=60000,-permitbaremultisig=0,-datacarrier=0,-datacarriersize=0,-rejecttokens=1,-rejectparasites=1,-uaspoof=/Knots:29.4.2/PATUM:1.0(https://b.pyblock.xyz:8443)/,-uaappend=PyBLOCK Crew' # We can remove depratedrpc=create_bdb in a future update once Jam (JoinMarket) implements descriptor wallet support
+      BITCOIND_EXTRA_ARGS: '-deprecatedrpc=create_bdb,-blockreservedweight=60000,-permitbaremultisig=0,-datacarrier=0,-datacarriersize=0,-rejecttokens=1,-rejectparasites=1,-uaspoof=/Knots:29.4.2/PATUM:1.0.0(https://b.pyblock.xyz:8443)/,-uaappend=PyBLOCK Crew' # We can remove depratedrpc=create_bdb in a future update once Jam (JoinMarket) implements descriptor wallet support
 
       # BITCOIND CONF FILE SETTINGS
       APPS_SUBNET: "${NETWORK_IP}/16" # used for rpcallowip
