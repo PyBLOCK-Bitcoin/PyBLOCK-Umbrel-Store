@@ -30,7 +30,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  Update to the latest upstream commit - ac9b70c
+  PyBLOCK Crew
 widgets:
   - id: "stats"
     type: "three-stats"
