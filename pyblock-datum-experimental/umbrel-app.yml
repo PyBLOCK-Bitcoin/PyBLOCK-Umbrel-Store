@@ -2,13 +2,13 @@ manifestVersion: 1.1
 id: pyblock-datum-experimental
 category: bitcoin
 name: WAVICLES
-version: "v0.4.1-beta-8"
+version: "v1.0.0"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-wavicles.svg
 tagline: PyBLOCK Crew WAVICLES, Port 23340
 description: >-
   ⚙️ PyBLOCK WAVICLES, Port 23340
 
-  In order for DATUM to be fully initialized, you need to add your Bitcoin address in the "Config" tab within the DATUM app.
+  In order for DATUM to be fully initialized, you need to add your Bitcoin XBT address in the "Config" tab within the DATUM app.
   This is the default address that mining rewards will be sent to. Your in-app credentials needed to change settings can be found by
   right-clicking on the DATUM app icon from your umbrelOS homescreen and selecting "Show default credentials".
   
