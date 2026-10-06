@@ -3,10 +3,14 @@ id: pyblock-datum
 category: bitcoin
 name: DATUM CHIRP
 version: "v0.4.1-beta-8"
-icon: https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/icon.svg
-tagline: Self-sovereign Bitcoin mining
+icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-chirp.svg
+tagline: Self-sovereign XBT mining
 description: >-
-  ⚙️ PyBLOCK CHIRP
+  ⚙️ PyBLOCK CHIRP, Port 23339
+
+  In order for DATUM to be fully initialized, you need to add your Bitcoin address in the "Config" tab within the DATUM app.
+  This is the default address that mining rewards will be sent to. Your in-app credentials needed to change settings can be found by
+  right-clicking on the DATUM app icon from your umbrelOS homescreen and selecting "Show default credentials".
   
   Use your umbrelOS device’s IP address (found in Settings on the umbrelOS home screen) and port 23339.
   e.g., stratum+tcp://192.168.4.56:23339
@@ -15,8 +19,8 @@ developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443
 dependencies:
   - bitcoin
-repo: https://github.com/OCEAN-xyz/datum_gateway
-support: https://ocean.xyz
+repo: https://b.pyblock.xyz:8443
+support: https://b.pyblock.xyz:8443
 port: 21009
 gallery:
   - https://raw.githubusercontent.com/getumbrel/umbrel-apps-gallery/refs/heads/master/datum/1.jpg
@@ -26,7 +30,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  Update to the latest upstream commit - ac9b70c
+  PyBLOCK Crew
 widgets:
   - id: "stats"
     type: "three-stats"
