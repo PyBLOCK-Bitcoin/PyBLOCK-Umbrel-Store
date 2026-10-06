@@ -4,7 +4,7 @@ category: bitcoin
 name: WAVICLES
 version: "v0.4.1-beta-8"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-wavicles.svg
-tagline: Self-sovereign XBT mining
+tagline: PyBLOCK Crew WAVICLES, Port 23340
 description: >-
   ⚙️ PyBLOCK WAVICLES, Port 23340
 
