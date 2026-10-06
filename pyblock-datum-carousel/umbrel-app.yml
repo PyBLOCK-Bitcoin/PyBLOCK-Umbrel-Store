@@ -4,7 +4,7 @@ category: bitcoin
 name: CAROUSEL
 version: "v0.4.1-beta-8"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-carousel.svg
-tagline: PyBLOCK Crew
+tagline: PyBLOCK Crew CAROUSEL, Port 23338
 description: >-
   ⚙️ PyBLOCK CAROUSEL, Port 23338
 
