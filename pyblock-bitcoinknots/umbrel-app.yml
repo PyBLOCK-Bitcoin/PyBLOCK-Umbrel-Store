@@ -5,7 +5,7 @@ name: Patum Node
 implements:
   - bitcoin
 version: "1.0.0"
-tagline: PyBLOCK Crew
+tagline: PyBLOCK Crew PATUM Node
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
   PyBLOCK PATUM Node.
