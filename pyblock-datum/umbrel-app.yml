@@ -1,7 +1,7 @@
 manifestVersion: 1.1
 id: pyblock-datum
 category: bitcoin
-name: DATUM CHIRP
+name: CHIRP
 version: "v0.4.1-beta-8"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-chirp.svg
 tagline: Self-sovereign XBT mining
