@@ -1,7 +1,7 @@
 manifestVersion: 1.1
 id: pyblock-bitcoinknots
 category: bitcoin
-name: Patum Node
+name: PATUM Node
 implements:
   - bitcoin
 version: "1.0.0"
