@@ -3,7 +3,7 @@ id: pyblock-laguz
 category: bitcoin
 name: Laguz
 version: "0.1.1"
-tagline: Your own Lightning hub for XBT (Bitcoin BLAKE2b)
+tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
   ᛚ Laguz is a self-custodial Lightning hub for XBT (Bitcoin BLAKE2b), built by PyBLØCK.
