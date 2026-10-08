@@ -1,0 +1,1 @@
+export APP_LAGUZ_LND_IP="10.21.21.177"

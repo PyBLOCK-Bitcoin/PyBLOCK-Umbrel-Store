@@ -1,0 +1,39 @@
+manifestVersion: 1.1
+id: pyblock-laguz
+category: bitcoin
+name: Laguz
+version: "0.1.1"
+tagline: Your own Lightning hub for XBT (Bitcoin BLAKE2b)
+icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
+description: >-
+  ᛚ Laguz is a self-custodial Lightning hub for XBT (Bitcoin BLAKE2b), built by PyBLØCK.
+
+  It runs an LND node (lightning-fork, BLAKE2b) on top of your PATUM Node and a web dashboard to open
+  channels, send and receive, and connect the PyBLØCK app with one tap over Nostr Wallet Connect.
+
+  Your node, your keys, your channels. No accounts, no custodian.
+
+  Requires the PATUM Node app (Bitcoin Knots BLAKE2b) fully synced.
+  To accept inbound channels from other nodes, forward (router) 9935 -> (device) 9935.
+
+  Important: fund channels only with XBT coins received after the chain split (coins mined or received
+  on XBT). Coins from before the split also exist on Bitcoin and could be replayed there.
+
+  Laguz is a fork of Alby Hub (Apache-2.0). Source: https://gitlab.com/astrolexis-group1/laguz
+developer: PyBLOCK Crew
+website: https://b.pyblock.xyz:8443/laguz.php
+dependencies:
+  - pyblock-bitcoinknots
+repo: https://gitlab.com/astrolexis-group1/laguz
+support: https://t.me/pyblockpool
+port: 2177
+gallery:
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/laguz/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/laguz/2.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/laguz/3.jpg
+path: ""
+defaultPassword: ""
+releaseNotes: >-
+  First release of Laguz on Umbrel.
+submitter: PyBLOCK Crew
+submission: https://t.me/pyblockpool

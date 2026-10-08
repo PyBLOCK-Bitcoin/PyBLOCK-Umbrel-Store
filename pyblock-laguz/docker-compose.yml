@@ -1,0 +1,87 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: pyblock-laguz_hub_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"   # the hub has its own unlock password
+
+  lnd:
+    image: registry.gitlab.com/astrolexis-group1/laguz/lnd:v0.21.3-beta-blake2b.17@sha256:83f9af3113f437b779f41dc6115bd1c258761eff81485362a5f53daa40ca054d
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 5m
+    command:   # the image's ENTRYPOINT is `lnd --lnddir=/data`
+      - --alias=Laguz
+      - --color=#b96bff
+      - --listen=0.0.0.0:9935
+      - --rpclisten=0.0.0.0:10009
+      - --restlisten=0.0.0.0:8080
+      - --tlsextradomain=pyblock-laguz_lnd_1
+      - --tlsextraip=${APP_LAGUZ_LND_IP}
+      - --bitcoin.mainnet
+      - --bitcoin.node=bitcoind
+      - --bitcoind.rpchost=${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}
+      - --bitcoind.rpcuser=${APP_BITCOIN_KNOTS_RPC_USER}
+      - --bitcoind.rpcpass=${APP_BITCOIN_KNOTS_RPC_PASS}
+      - --bitcoind.zmqpubrawblock=tcp://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_ZMQ_RAWBLOCK_PORT}
+      - --bitcoind.zmqpubrawtx=tcp://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_ZMQ_RAWTX_PORT}
+      - --bitcoind.estimatemode=CONSERVATIVE
+      - --wallet-unlock-password-file=/data/wallet.pw
+      - --wallet-unlock-allow-create
+      - --accept-keysend
+      - --maxpendingchannels=5
+    volumes:
+      - ${APP_DATA_DIR}/data/lnd:/data
+    ports:
+      - "9935:9935"   # p2p, so other XBT nodes can open channels to you
+    networks:
+      default:
+        ipv4_address: ${APP_LAGUZ_LND_IP}
+
+  hub:
+    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.1@sha256:bc5bc187fa32aae8c9c7c5dad54de4ea80fa0ea9e4c9dce444704b65c46108ad
+    user: "1000:1000"
+    restart: unless-stopped
+    depends_on:
+      - lnd
+      - mempool
+    environment:
+      WORK_DIR: /data
+      PORT: "8080"
+      BIND_ADDRESS: 0.0.0.0
+      NETWORK: bitcoin
+      LN_BACKEND_TYPE: LND
+      LND_ADDRESS: ${APP_LAGUZ_LND_IP}:10009
+      LND_CERT_FILE: /lnd/tls.cert
+      LND_MACAROON_FILE: /lnd/data/chain/bitcoin/mainnet/admin.macaroon
+      LND_WALLET_PASSWORD_FILE: /lnd/wallet.pw   # first run: the hub creates the LND wallet (GenSeed + InitWallet) with it
+      LND_CONF_FILE: ""
+      MEMPOOL_API: http://pyblock-laguz_mempool_1:8032/api
+      RELAY: wss://nostr.pyblock.xyz:8443
+      LAGUZ_PRICE_URL: https://b.pyblock.xyz:8443/api/app/blake2b_widgets.php
+      AUTO_LINK_ALBY_ACCOUNT: "false"
+      SEND_EVENTS_TO_ALBY: "false"
+    volumes:
+      - ${APP_DATA_DIR}/data/hub:/data
+      - ${APP_DATA_DIR}/data/lnd:/lnd:ro
+
+  mempool:
+    # mempool.space-style API for XBT (fees, txs, node details) from Knots + LND, so the hub never asks BTC mempool.space
+    image: registry.gitlab.com/astrolexis-group1/laguz/mempool:0.1.0@sha256:ee613692badd84cc18ad077420b01922ab15ead0e4c552f2a1dcfa4a746a6c9f
+    user: "1000:1000"
+    restart: on-failure
+    depends_on:
+      - lnd
+    environment:
+      LAGUZ_BTC_RPC_URL: http://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}
+      LAGUZ_BTC_RPC_USER: ${APP_BITCOIN_KNOTS_RPC_USER}
+      LAGUZ_BTC_RPC_PASS: ${APP_BITCOIN_KNOTS_RPC_PASS}
+      LAGUZ_LND_REST: https://${APP_LAGUZ_LND_IP}:8080
+      LAGUZ_LND_TLS_CERT: /lnd/tls.cert
+      LAGUZ_LND_MACAROON: /lnd/data/chain/bitcoin/mainnet/readonly.macaroon
+      LAGUZ_MEMPOOL_BIND: 0.0.0.0
+      LAGUZ_MEMPOOL_PORT: "8032"
+    volumes:
+      - ${APP_DATA_DIR}/data/lnd:/lnd:ro
