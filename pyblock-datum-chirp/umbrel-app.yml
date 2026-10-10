@@ -1,5 +1,5 @@
 manifestVersion: 1.1
-id: pyblock-datum
+id: pyblock-datum-chirp
 category: bitcoin
 name: CHIRP
 version: "v1.0.0"
