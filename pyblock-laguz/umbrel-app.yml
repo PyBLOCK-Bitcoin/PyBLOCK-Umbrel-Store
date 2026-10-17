@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.1"
+version: "0.1.2"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,6 +34,28 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  First release of Laguz on Umbrel.
+  Adds a Laguz widget to the Umbrel home screen: open channels, Lightning balance, on-chain balance and connected peers.
+widgets:
+  - id: "stats"
+    type: "four-stats"
+    refresh: "30s"
+    endpoint: "mempool:8032/api/widget/stats"
+    link: ""
+    example:
+      type: "four-stats"
+      link: ""
+      items:
+        - title: "Channels"
+          text: "3"
+          subtext: "open"
+        - title: "Lightning"
+          text: "250k"
+          subtext: "sats"
+        - title: "On-chain"
+          text: "51k"
+          subtext: "sats"
+        - title: "Peers"
+          text: "4"
+          subtext: "connected"
 submitter: PyBLOCK Crew
 submission: https://t.me/pyblockpool
