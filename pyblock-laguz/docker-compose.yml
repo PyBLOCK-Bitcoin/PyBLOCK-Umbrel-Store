@@ -69,7 +69,7 @@ services:
 
   mempool:
     # mempool.space-style API for XBT (fees, txs, node details) from Knots + LND, so the hub never asks BTC mempool.space
-    image: registry.gitlab.com/astrolexis-group1/laguz/mempool:0.1.0@sha256:ee613692badd84cc18ad077420b01922ab15ead0e4c552f2a1dcfa4a746a6c9f
+    image: registry.gitlab.com/astrolexis-group1/laguz/mempool:0.1.1@sha256:b8f4c1cb911779b24ffa764d38b63732a05e2e6a3786d3bc7676f9e7e133aeb3
     user: "1000:1000"
     restart: on-failure
     depends_on:
