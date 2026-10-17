@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM Node
 implements:
   - bitcoin
-version: "1.0.2"
+version: "1.0.1"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
@@ -30,7 +30,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  PyBLOCK Crew Patum Node 1.0.2. Fixes Lightning on this node: Laguz channels stuck in "pending open" and on-chain sends that never left. The node now reports its version in the standard format that Lightning (LND) expects. After updating, restart Laguz once so it publishes the pending channel funding transactions.
+  PyBLOCK Crew Patum Node 1.0.1.
 widgets:
   - id: "stats"
     type: "four-stats"
