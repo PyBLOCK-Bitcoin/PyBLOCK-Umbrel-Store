@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.3"
+version: "0.1.4"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,7 +34,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Restore Laguz from your 24-word recovery phrase (Advanced setup), optionally with your channel backup file. Laguz now only offers its lnd backend, and links that pointed to Alby now point to Laguz pages.
+  Fixes installs that ended up on the LDK backend (it does not work on XBT): Laguz now always runs its lnd node. If yours was on LDK, Laguz creates a new lnd wallet on update — write down the 24 words from Settings → Backup. The old LDK data is not deleted.
 widgets:
   - id: "stats"
     type: "four-stats"
