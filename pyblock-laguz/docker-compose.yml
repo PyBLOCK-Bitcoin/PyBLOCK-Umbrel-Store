@@ -41,7 +41,7 @@ services:
         ipv4_address: ${APP_LAGUZ_LND_IP}
 
   hub:
-    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.3@sha256:dfabea1a550e4865098c1cd697030fb63fcdd2aa97802d7c392348c0d0964c47
+    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.4@sha256:68f167d110087ad8d2c4a624f2d2ce12963b7395b88f3fc32bf891d10a1b7231
     user: "1000:1000"
     restart: unless-stopped
     depends_on:
