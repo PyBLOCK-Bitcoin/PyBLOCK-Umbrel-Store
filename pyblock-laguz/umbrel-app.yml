@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.4"
+version: "0.1.5"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,7 +34,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fixes installs that ended up on the LDK backend (it does not work on XBT): Laguz now always runs its lnd node. If yours was on LDK, Laguz creates a new lnd wallet on update — write down the 24 words from Settings → Backup. The old LDK data is not deleted.
+  Buy inbound liquidity from PyBLØCK right inside Laguz: Channels → Buy Inbound. You get a 1,000,000 sat channel to receive payments for 30 days, kept open while you use it.
 widgets:
   - id: "stats"
     type: "four-stats"
