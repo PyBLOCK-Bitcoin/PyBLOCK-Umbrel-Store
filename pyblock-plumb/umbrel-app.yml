@@ -7,7 +7,7 @@ storage:
 category: bitcoin
 name: PATUM Plumb
 version: "29.4.2.knots20260508.plumb6"
-tagline: Bitcoin Knots with every reviewed spam filter on by default
+tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
   each on by default and each its own setting. It follows Bitcoin, which has
