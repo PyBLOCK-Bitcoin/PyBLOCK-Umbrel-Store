@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   app:
-    image: ghcr.io/plumb-node/umbrel-plumb:v29.4.2.knots20260508.plumb6@sha256:934c945643faf8b4e41a18f88bd0451afe075c5d36c07a2005344b8123468529
+    image: registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-plumb:v29.4.2.knots20260508.plumb7@sha256:2d1c8bdd1133b79013d37c295280278e31e5cba7de68875bf2dd621b7ed68067
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 15m30s

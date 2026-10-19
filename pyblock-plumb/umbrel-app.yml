@@ -7,7 +7,7 @@ storage:
   dataRoot: data
 category: bitcoin
 name: PATUM Plumb
-version: "29.4.2.knots20260508.plumb6-1"
+version: "29.4.2.knots20260508.plumb7"
 tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
@@ -43,9 +43,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fixes the first start: the node could not create its data folder
-  (EACCES on /data/bitcoin) and kept restarting. Update, or reinstall if it
-  never started.
+  Plumb 7 (v29.4.2.knots20260508.plumb7), built by PyBLOCK from the signed tag:
+  -rejectfakeoutputs no longer counts change back to an address the transaction
+  spends from (knots#389 as of 2026-10-13). This app keeps OP_RETURN data off
+  (-datacarrier=0), so the new 42-byte -datacarriersize default does not change
+  it. Plumb 6 stays available in the app settings.
 widgets:
   - id: "stats"
     type: "four-stats"
