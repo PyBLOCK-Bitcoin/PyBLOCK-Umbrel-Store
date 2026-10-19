@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.7"
+version: "0.1.8"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,9 +34,10 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fixes 0.1.6: Laguz is tied to PATUM Node again, so existing installs keep
-  their node after the update. To run it on PATUM Plumb instead, install
-  PATUM Plumb first and pick it when installing Laguz.
+  First start on a node that is still syncing: Laguz now waits for your node
+  to reach block 961640 (the first BLAKE2b block) and tells you how far it is,
+  instead of failing with "no route to host". Lightning node updated to
+  lnd 0.21.4-beta-blake2b.21.
 widgets:
   - id: "stats"
     type: "four-stats"
