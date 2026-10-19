@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.6"
+version: "0.1.7"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -23,7 +23,7 @@ description: >-
 developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443/laguz.php
 dependencies:
-  - bitcoin
+  - pyblock-bitcoinknots
 repo: https://gitlab.com/astrolexis-group1/laguz
 support: https://t.me/pyblockpool
 port: 2177
@@ -34,7 +34,9 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Laguz now runs on PATUM Node or PATUM Plumb: pick the node when you install.
+  Fixes 0.1.6: Laguz is tied to PATUM Node again, so existing installs keep
+  their node after the update. To run it on PATUM Plumb instead, install
+  PATUM Plumb first and pick it when installing Laguz.
 widgets:
   - id: "stats"
     type: "four-stats"

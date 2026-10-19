@@ -2,6 +2,7 @@ manifestVersion: 1.1
 id: pyblock-plumb
 implements:
   - bitcoin
+  - pyblock-bitcoinknots
 storage:
   dataRoot: data
 category: bitcoin
