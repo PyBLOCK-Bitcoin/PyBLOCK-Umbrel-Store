@@ -2,18 +2,18 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.5"
+version: "0.1.6"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
   ᛚ Laguz is a self-custodial Lightning hub for XBT (Bitcoin BLAKE2b), built by PyBLØCK.
 
-  It runs an LND node (lightning-fork, BLAKE2b) on top of your PATUM Node and a web dashboard to open
+  It runs an LND node (lightning-fork, BLAKE2b) on top of your PATUM Node (or PATUM Plumb) and a web dashboard to open
   channels, send and receive, and connect the PyBLØCK app with one tap over Nostr Wallet Connect.
 
   Your node, your keys, your channels. No accounts, no custodian.
 
-  Requires the PATUM Node app (Bitcoin Knots BLAKE2b) fully synced.
+  Requires PATUM Node or PATUM Plumb, fully synced.
   To accept inbound channels from other nodes, forward (router) 9935 -> (device) 9935.
 
   Important: fund channels only with XBT coins received after the chain split (coins mined or received
@@ -23,7 +23,7 @@ description: >-
 developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443/laguz.php
 dependencies:
-  - pyblock-bitcoinknots
+  - bitcoin
 repo: https://gitlab.com/astrolexis-group1/laguz
 support: https://t.me/pyblockpool
 port: 2177
@@ -34,7 +34,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Buy inbound liquidity from PyBLØCK right inside Laguz: Channels → Buy Inbound. You get a 1,000,000 sat channel to receive payments for 30 days, kept open while you use it.
+  Laguz now runs on PATUM Node or PATUM Plumb: pick the node when you install.
 widgets:
   - id: "stats"
     type: "four-stats"

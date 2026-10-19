@@ -22,11 +22,11 @@ services:
       - --tlsextraip=${APP_LAGUZ_LND_IP}
       - --bitcoin.mainnet
       - --bitcoin.node=bitcoind
-      - --bitcoind.rpchost=${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}
-      - --bitcoind.rpcuser=${APP_BITCOIN_KNOTS_RPC_USER}
-      - --bitcoind.rpcpass=${APP_BITCOIN_KNOTS_RPC_PASS}
-      - --bitcoind.zmqpubrawblock=tcp://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_ZMQ_RAWBLOCK_PORT}
-      - --bitcoind.zmqpubrawtx=tcp://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_ZMQ_RAWTX_PORT}
+      - --bitcoind.rpchost=${APP_BITCOIN_NODE_IP}:${APP_BITCOIN_RPC_PORT}
+      - --bitcoind.rpcuser=${APP_BITCOIN_RPC_USER}
+      - --bitcoind.rpcpass=${APP_BITCOIN_RPC_PASS}
+      - --bitcoind.zmqpubrawblock=tcp://${APP_BITCOIN_NODE_IP}:${APP_BITCOIN_ZMQ_RAWBLOCK_PORT}
+      - --bitcoind.zmqpubrawtx=tcp://${APP_BITCOIN_NODE_IP}:${APP_BITCOIN_ZMQ_RAWTX_PORT}
       - --bitcoind.estimatemode=CONSERVATIVE
       - --wallet-unlock-password-file=/data/wallet.pw
       - --wallet-unlock-allow-create
@@ -75,9 +75,9 @@ services:
     depends_on:
       - lnd
     environment:
-      LAGUZ_BTC_RPC_URL: http://${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}
-      LAGUZ_BTC_RPC_USER: ${APP_BITCOIN_KNOTS_RPC_USER}
-      LAGUZ_BTC_RPC_PASS: ${APP_BITCOIN_KNOTS_RPC_PASS}
+      LAGUZ_BTC_RPC_URL: http://${APP_BITCOIN_NODE_IP}:${APP_BITCOIN_RPC_PORT}
+      LAGUZ_BTC_RPC_USER: ${APP_BITCOIN_RPC_USER}
+      LAGUZ_BTC_RPC_PASS: ${APP_BITCOIN_RPC_PASS}
       LAGUZ_LND_REST: https://${APP_LAGUZ_LND_IP}:8080
       LAGUZ_LND_TLS_CERT: /lnd/tls.cert
       LAGUZ_LND_MACAROON: /lnd/data/chain/bitcoin/mainnet/readonly.macaroon

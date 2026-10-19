@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Laguz pre-start: needs the PATUM Node (Knots BLAKE2b) RPC/ZMQ settings, and a wallet password for LND.
+# Laguz pre-start: needs the RPC/ZMQ settings of the chosen node (PATUM Node or PATUM Plumb), and a wallet password for LND.
 APP_DATA_DIR="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")/data"
 DESIRED_OWNER="1000:1000"
 
-for v in APP_BITCOIN_KNOTS_NODE_IP APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT APP_BITCOIN_KNOTS_RPC_USER APP_BITCOIN_KNOTS_RPC_PASS \
-         APP_BITCOIN_KNOTS_ZMQ_RAWBLOCK_PORT APP_BITCOIN_KNOTS_ZMQ_RAWTX_PORT; do
-  if [ -z "${!v}" ]; then echo "Laguz: ${v} is not set — install and start the PATUM Node app first."; exit 1; fi
+for v in APP_BITCOIN_NODE_IP APP_BITCOIN_RPC_PORT APP_BITCOIN_RPC_USER APP_BITCOIN_RPC_PASS \
+         APP_BITCOIN_ZMQ_RAWBLOCK_PORT APP_BITCOIN_ZMQ_RAWTX_PORT; do
+  if [ -z "${!v}" ]; then echo "Laguz: ${v} is not set — install and start PATUM Node or PATUM Plumb first."; exit 1; fi
 done
 
 mkdir -p "${APP_DATA_DIR}/lnd" "${APP_DATA_DIR}/hub"

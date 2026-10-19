@@ -6,7 +6,7 @@ storage:
   dataRoot: data
 category: bitcoin
 name: PATUM Plumb
-version: "29.4.2.knots20260508.plumb6"
+version: "29.4.2.knots20260508.plumb6-1"
 tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
@@ -42,8 +42,9 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  First release: PATUM Plumb v29.4.2.knots20260508.plumb6 (Bitcoin Knots
-  29.4.2.knots20260508 plus five filters), from the signed release tarball.
+  Fixes the first start: the node could not create its data folder
+  (EACCES on /data/bitcoin) and kept restarting. Update, or reinstall if it
+  never started.
 widgets:
   - id: "stats"
     type: "four-stats"

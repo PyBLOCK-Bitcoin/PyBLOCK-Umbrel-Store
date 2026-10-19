@@ -20,6 +20,11 @@ set_correct_permissions() {
 	fi
 }
 
+# The data folders must exist and belong to 1000:1000 before the app starts; if Docker created
+# data/ itself (as root), the node cannot mkdir /data/bitcoin (EACCES) and loops on restart.
+mkdir -p "${DATA_ROOT}/app" "${DATA_ROOT}/bitcoin" "${DATA_ROOT}/i2pd"
+chown "${DESIRED_OWNER}" "${DATA_ROOT}" "${DATA_ROOT}/bitcoin"
+
 # We set the correct permissions for any files that may have been created by a previous app running as root:
 set_correct_permissions "${DATA_ROOT}/bitcoin/umbrel-bitcoin.conf"
 set_correct_permissions "${DATA_ROOT}/bitcoin/bitcoin.conf"
