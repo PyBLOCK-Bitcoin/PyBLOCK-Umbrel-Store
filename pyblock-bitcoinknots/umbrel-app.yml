@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM Node
 implements:
   - bitcoin
-version: "1.0.2"
+version: "1.0.3"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
