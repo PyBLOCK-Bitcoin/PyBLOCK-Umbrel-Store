@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM Node
 implements:
   - bitcoin
-version: "1.0.1"
+version: "1.0.2"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
@@ -30,7 +30,7 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  PyBLOCK Crew Patum Node 1.0.1.
+  Security update: the app image now carries Debian 12's latest security fixes (glibc, curl, gnutls, perl and more), Node.js 22 LTS instead of Node.js 20 (end of life), and updated web-panel libraries (fastify, ws, zod, lodash). Same node, same data, same settings: nothing to do.
 widgets:
   - id: "stats"
     type: "four-stats"
