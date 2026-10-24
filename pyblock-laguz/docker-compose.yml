@@ -32,6 +32,8 @@ services:
       - --wallet-unlock-allow-create
       - --accept-keysend
       - --maxpendingchannels=5
+      - --protocol.wumbo-channels   # channels above 16,777,215 sats, when both nodes allow it
+      - --maxchansize=100000000     # but never more than 1 XBT in one channel
     volumes:
       - ${APP_DATA_DIR}/data/lnd:/data
     ports:
@@ -41,7 +43,7 @@ services:
         ipv4_address: ${APP_LAGUZ_LND_IP}
 
   hub:
-    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.6@sha256:c3a6d5e7e35960659c77952f6c93394b6c8695b88a27ba33f616aec57823d218
+    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.7@sha256:f4d72a7cbab9f1e81733f2e033c7a76d94347df2bcb0ad0a0ed5c7cc5bf037d2
     user: "1000:1000"
     restart: unless-stopped
     depends_on:
