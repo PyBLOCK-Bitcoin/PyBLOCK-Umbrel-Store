@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.10"
+version: "0.1.11"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,11 +34,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Restore from your 24-word recovery phrase works again: on a fresh install, Advanced
-  Setup → "Restore from 24-word Recovery Phrase" brings back your node and its on-chain
-  balance, and with your channel.backup file the funds that were in channels too.
-  Bigger channels: Laguz now accepts and opens channels above 16,777,215 sats (wumbo)
-  with nodes that allow them too, up to 1 XBT per channel.
+  Fix for the first setup: the first start can take a few minutes (creating or restoring
+  your node wallet, or waiting for the Bitcoin node), and the setup screen gave up after
+  30 seconds; trying again then failed with "app is busy". Now the screen waits and shows
+  what it is doing. Also in this version: restore from your 24-word recovery phrase (with
+  your channel.backup for the funds in channels) and wumbo channels up to 1 XBT.
   Same channels, same data: nothing to do.
 widgets:
   - id: "stats"
