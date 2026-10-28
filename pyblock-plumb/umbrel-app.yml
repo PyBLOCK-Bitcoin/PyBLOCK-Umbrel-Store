@@ -7,7 +7,7 @@ storage:
   dataRoot: data
 category: bitcoin
 name: PATUM Plumb
-version: "29.4.2.knots20260508.plumb7.1"
+version: "29.4.3.knots20260508.plumb8"
 tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
@@ -43,7 +43,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Security update: the app image now carries Debian 12's latest security fixes (glibc, curl, gnutls, perl and more), Node.js 22 LTS instead of Node.js 20 (end of life), and updated web-panel libraries (fastify, ws, zod, lodash). Same node, same data, same settings: nothing to do.
+  Required update before block 979,919: Plumb 8 on Bitcoin Knots 29.4.3 (final). From block 979,919 each new
+  coinbase matures on its own after 25,920 blocks (~180 days); coinbases mined between 973,440 and 979,918 still
+  unlock at block 979,920. A node still on 29.4.2 would follow a different rule after that block, so update now.
+  Plumb 8 also adds a token-message filter (-rejecttokenmessages). Binaries are the signed Plumb release
+  (Jason Sopko), checked byte for byte. Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
     type: "four-stats"
