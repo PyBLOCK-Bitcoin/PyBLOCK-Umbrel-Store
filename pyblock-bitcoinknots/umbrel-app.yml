@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM Node
 implements:
   - bitcoin
-version: "1.0.3"
+version: "1.0.4"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
@@ -30,7 +30,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Security update: the app image now carries Debian 12's latest security fixes (glibc, curl, gnutls, perl and more), Node.js 22 LTS instead of Node.js 20 (end of life), and updated web-panel libraries (fastify, ws, zod, lodash). Same node, same data, same settings: nothing to do.
+  Required update before block 979,919: Bitcoin Knots 29.4.3 (final). From block 979,919 each new coinbase
+  matures on its own after 25,920 blocks (~180 days); coinbases mined between 973,440 and 979,918 still unlock
+  at block 979,920. A node still on 29.4.2 would follow a different rule after that block, so update now.
+  Knots has not published 29.4.3 binaries yet, so PyBLOCK built them from Luke Dashjr's signed v29.4.3 tag
+  (tests, symbol and security checks passed). Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
     type: "four-stats"

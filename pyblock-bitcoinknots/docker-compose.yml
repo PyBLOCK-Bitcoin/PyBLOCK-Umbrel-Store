@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
   
   app:
-    image: registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-pyblock1@sha256:9c37f72292dfe6be8cbbaf0b5be9c3382a2b0c5516b38025b2064fb09040ee13
+    image: registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-knots29.4.3-pyblock1@sha256:a16f1cb52fe70f9b5ce2288b86b3bc89a002a1b76963b4f65d1d105b33fc8510
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 15m30s
