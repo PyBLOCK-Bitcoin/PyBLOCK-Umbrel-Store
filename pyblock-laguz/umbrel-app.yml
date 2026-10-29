@@ -8,12 +8,12 @@ icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
   ᛚ Laguz is a self-custodial Lightning hub for XBT (Bitcoin BLAKE2b), built by PyBLØCK.
 
-  It runs an LND node (lightning-fork, BLAKE2b) on top of your PATUM Node (or PATUM Plumb) and a web dashboard to open
+  It runs an LND node (lightning-fork, BLAKE2b) on top of your PATUM (Knots) or PATUM (Plumb) and a web dashboard to open
   channels, send and receive, and connect the PyBLØCK app with one tap over Nostr Wallet Connect.
 
   Your node, your keys, your channels. No accounts, no custodian.
 
-  Requires PATUM Node or PATUM Plumb, fully synced.
+  Requires PATUM (Knots) or PATUM (Plumb), fully synced.
   To accept inbound channels from other nodes, forward (router) 9935 -> (device) 9935.
 
   Important: fund channels only with XBT coins received after the chain split (coins mined or received
