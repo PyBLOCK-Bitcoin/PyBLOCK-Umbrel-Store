@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-datum-carousel
 category: bitcoin
 name: CAROUSEL
-version: "v1.0.0"
+version: "v1.1.0"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-carousel.svg
 tagline: PyBLOCK Crew CAROUSEL, Port 23338
 description: >-
@@ -32,7 +32,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  PyBLOCK Crew Carousel
+  DATUM Gateway v0.5.0beta (CONVOY), built by PyBLOCK from the pinned commit 69c61a9: the same gateway the PyBLOCK pools and PATUM run. It includes the BLAKE2b coinbase weight fix, reports block-submission failures correctly and tracks local and pool shares separately. Hasher time rolling is now off by default. The gateway settings page now asks for the password (umbrel) to view the settings too, not only to save them.
 widgets:
   - id: "stats"
     type: "three-stats"
