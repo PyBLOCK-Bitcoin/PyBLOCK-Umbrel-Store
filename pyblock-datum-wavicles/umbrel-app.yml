@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-datum-wavicles
 category: bitcoin
 name: WAVICLES
-version: "v1.1.0"
+version: "v1.1.1"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-wavicles.svg
 tagline: PyBLOCK Crew WAVICLES, Port 23340
 description: >-
@@ -32,7 +32,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  DATUM Gateway v0.5.0beta (CONVOY), built by PyBLOCK from the pinned commit 69c61a9: the same gateway the PyBLOCK pools and PATUM run. It includes the BLAKE2b coinbase weight fix, reports block-submission failures correctly and tracks local and pool shares separately. Hasher time rolling is now off by default. The gateway settings page now asks for the password (umbrel) to view the settings too, not only to save them.
+  The gateway settings page logs in again with the credentials Umbrel shows for this app (admin and the app password). With a PATUM (Plumb) node the app now also picks up the node connection by itself. Your payout address and other settings are kept. Since 1.1.0 the app runs DATUM Gateway v0.5.0beta (CONVOY, commit 69c61a9), which asks for the password to view the settings too.
 widgets:
   - id: "stats"
     type: "three-stats"
