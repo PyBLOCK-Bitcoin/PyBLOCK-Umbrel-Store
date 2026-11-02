@@ -68,5 +68,7 @@ if [ -n "${STRATUM_PORT:-}" ] && ! jq -e --argjson s "$STRATUM_PORT" --argjson a
 fi
 
 # Last, so every rewrite above stays writable by the gateway (it saves the settings page into this file).
-chown "${DESIRED_OWNER}" "$DATUM_CONFIG_FILE"
+# The gateway saves its settings page by writing a new file next to this one and renaming it, so it needs the
+# folder too.
+chown "${DESIRED_OWNER}" "$(dirname "$DATUM_CONFIG_FILE")" "$DATUM_CONFIG_FILE"
 chmod 600 "$DATUM_CONFIG_FILE"
