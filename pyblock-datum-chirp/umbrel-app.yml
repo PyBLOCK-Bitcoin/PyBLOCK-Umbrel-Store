@@ -20,7 +20,7 @@ description: >-
 developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443
 dependencies:
-  - bitcoin
+  - pyblock-bitcoinknots
 repo: https://b.pyblock.xyz:8443
 support: https://t.me/pyblockpool
 port: 21011
@@ -32,7 +32,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  CHIRP moves to its own ports so it can run next to other Umbrel DATUM apps: miners now connect to port 23341 (was 23339) and the web page is on 21011 (was 21009). Point your miners to the new port after updating. Your payout address and settings are kept. DATUM Gateway v0.5.0beta (CONVOY 69c61a9).
+  CHIRP moves to its own ports so it can run next to other Umbrel DATUM apps: miners now connect to port 23341 (was 23339) and the web page is on 21011 (was 21009). Point your miners to the new port after updating. Your payout address and settings are kept. DATUM Gateway v0.5.0beta (CONVOY 69c61a9). The install popup now only offers PyBLOCK nodes (PATUM (Knots) or PATUM (Plumb)); if Umbrel asks which node to use after updating, pick yours.
 widgets:
   - id: "stats"
     type: "three-stats"

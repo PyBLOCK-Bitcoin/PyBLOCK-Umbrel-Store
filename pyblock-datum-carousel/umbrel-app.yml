@@ -20,7 +20,7 @@ description: >-
 developer: PyBLOCK Crew
 website: https://b.pyblock.xyz:8443
 dependencies:
-  - bitcoin
+  - pyblock-bitcoinknots
 repo: https://b.pyblock.xyz:8443
 support: https://t.me/pyblockpool
 port: 21008
@@ -32,7 +32,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  Same gateway as 1.1.1 (DATUM Gateway v0.5.0beta, CONVOY 69c61a9). CHIRP and WAVICLES moved to their own ports in this release; CAROUSEL keeps 23338.
+  Same gateway as 1.1.1 (DATUM Gateway v0.5.0beta, CONVOY 69c61a9). CHIRP and WAVICLES moved to their own ports in this release; CAROUSEL keeps 23338. The install popup now only offers PyBLOCK nodes (PATUM (Knots) or PATUM (Plumb)); if Umbrel asks which node to use after updating, pick yours.
 widgets:
   - id: "stats"
     type: "three-stats"
