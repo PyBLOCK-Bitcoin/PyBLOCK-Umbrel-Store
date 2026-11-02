@@ -53,6 +53,20 @@ if [ -n "${APP_PASSWORD}" ] && jq -e '(.api.admin_password // "") | . == "umbrel
   echo "Settings page password set to the app password."
 fi
 
+# The ports this version of the app maps (docker-compose.yml). Umbrel does not copy data/ on updates, so an
+# install from before 1.2.0 keeps the old ports in its config; set them here or the gateway would listen on a
+# port nothing maps. 1.2.0 moved CHIRP and WAVICLES off 23339/23340 (and 21009/21010), which other Umbrel DATUM
+# apps also use.
+case "$(basename "${APP_DATA_DIR}")" in
+  pyblock-datum-carousel) STRATUM_PORT=23338; API_PORT=21008 ;;
+  pyblock-datum-chirp)    STRATUM_PORT=23341; API_PORT=21011 ;;
+  pyblock-datum-wavicles) STRATUM_PORT=23342; API_PORT=21012 ;;
+esac
+if [ -n "${STRATUM_PORT:-}" ] && ! jq -e --argjson s "$STRATUM_PORT" --argjson a "$API_PORT" '.stratum.listen_port == $s and .api.listen_port == $a' "$DATUM_CONFIG_FILE" > /dev/null; then
+  edit '.stratum.listen_port = $s | .api.listen_port = $a' --argjson s "$STRATUM_PORT" --argjson a "$API_PORT"
+  echo "Ports set to ${STRATUM_PORT} (miners) and ${API_PORT} (web)."
+fi
+
 # Last, so every rewrite above stays writable by the gateway (it saves the settings page into this file).
 chown "${DESIRED_OWNER}" "$DATUM_CONFIG_FILE"
 chmod 600 "$DATUM_CONFIG_FILE"
