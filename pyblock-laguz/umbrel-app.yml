@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.11"
+version: "0.1.12"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,12 +34,13 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix for the first setup: the first start can take a few minutes (creating or restoring
-  your node wallet, or waiting for the Bitcoin node), and the setup screen gave up after
-  30 seconds; trying again then failed with "app is busy". Now the screen waits and shows
-  what it is doing. Also in this version: restore from your 24-word recovery phrase (with
-  your channel.backup for the funds in channels) and wumbo channels up to 1 XBT.
-  Same channels, same data: nothing to do.
+  Pay BOLT 12 offers (lno1…): paste one in Send, choose the amount if it has none, add an optional
+  note, and Laguz asks the recipient for an invoice and pays it, checked against your balance like
+  any payment. Receive also gives you a reusable Lightning Offer. Lightning node updated to
+  Lightning Fork 0.21.4-beta-blake2b.21.2: the node's restore command for a channel.backup now
+  works (restoring at setup already did), the app no longer loses channel updates, and Multipath
+  TCP listeners are off (CVE-2026-98432).
+  Same channels, same data, same 24-word recovery phrase: nothing to do.
 widgets:
   - id: "stats"
     type: "four-stats"
