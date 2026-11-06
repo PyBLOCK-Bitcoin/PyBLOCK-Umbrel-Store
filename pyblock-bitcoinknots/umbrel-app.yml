@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM (Knots)
 implements:
   - bitcoin
-version: "1.0.5"
+version: "1.0.6"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
@@ -30,9 +30,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  The app is now called PATUM (Knots). Its user agent now reads
-  /Satoshi:29.4.3/Knots:20260508/PATUM:1.0.5(https://b.pyblock.xyz:8443)/ (1.0.4 still said 29.4.2).
-  Same Bitcoin Knots 29.4.3 image, data and settings: nothing else to do.
+  Bitcoin Knots 29.5 (v29.5.knots20260508), the official release binaries (SHA256SUMS signed by Luke Dashjr).
+  Same consensus rules as 29.4.3 (BLAKE2b proof of work, rolling ~180-day coinbase maturity): the update is
+  about networking, I/O and mempool policy, so the node keeps its chain and does not reindex. User agent now
+  /Satoshi:29.5.0/Knots:20260508/PATUM:1.0.6(https://b.pyblock.xyz:8443)/. Earlier Knots versions stay
+  available in Settings for anyone who pinned one. Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
     type: "four-stats"
