@@ -1,6 +1,6 @@
 # umbrel-patum-node image (PATUM (Knots), Bitcoin Knots 29.5)
 
-`registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-knots29.5-pyblock1`
+`registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-knots29.5-pyblock1@sha256:abc2da0e2efc6d59d5e3934dd39ec6c4574b997b8ca51c945356659af8b651b6`
 (linux/amd64 + linux/arm64; pin the index digest the push prints in `pyblock-bitcoinknots/docker-compose.yml`).
 
 It is our `umbrel-patum-node:1.2.20-knots29.4.3-pyblock1` (index `sha256:a16f1cb5…`, already security-refreshed, with
