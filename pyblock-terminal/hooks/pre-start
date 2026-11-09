@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# PyBLØCK Terminal pre-start: the config folder must exist and belong to the app user (1000), or PyBLOCK can't save.
+APP_DATA_DIR="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")/data"
+if [ -z "${APP_BITCOIN_NODE_IP}" ] || [ -z "${APP_BITCOIN_RPC_USER}" ]; then
+  echo "PyBLØCK Terminal: the node RPC is not set — install and start PATUM (Knots) or PATUM (Plumb) first."
+  exit 1
+fi
+mkdir -p "${APP_DATA_DIR}/config"
+chown -R 1000:1000 "${APP_DATA_DIR}/config"

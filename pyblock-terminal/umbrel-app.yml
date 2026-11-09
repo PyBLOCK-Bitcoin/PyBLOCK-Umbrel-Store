@@ -1,0 +1,39 @@
+manifestVersion: 1.1
+id: pyblock-terminal
+category: bitcoin
+name: PyBLØCK Terminal
+version: "5.2.1"
+tagline: The PyBLØCK dashboard for your XBT node, in the browser
+icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-terminal.svg
+description: >-
+  PyBLØCK Terminal is the PyBLØCK dashboard for XBT (Bitcoin BLAKE2b), running in a web terminal.
+
+  It connects by itself to your PATUM (Knots) or PATUM (Plumb) node: open it and you are on the live dashboard,
+  with the block train and the mempool, cesspool.lol water-quality grades on every block, hashrate, difficulty,
+  halving, the PyBLØCK pools and your node's state.
+
+  Space opens the menu with every tool (blocks, mempool, monitors, decoders, wallet, stats, mining), with search.
+  The setup (s) lets you switch to Lite mode or another node.
+
+  One PyBLØCK per browser tab. Closing the tab ends it.
+
+  Source: https://gitlab.com/astrolexis-group1/pyblock
+developer: PyBLOCK Crew
+website: https://b.pyblock.xyz:8443
+dependencies:
+  - pyblock-bitcoinknots
+repo: https://gitlab.com/astrolexis-group1/pyblock
+support: https://t.me/pyblockpool
+port: 2178
+gallery:
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/terminal/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/terminal/2.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/terminal/3.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/terminal/4.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  First release in the PyBLØCK store: PyBLØCK 5.2.1 in the browser, connected to your PATUM node with no setup.
+submitter: PyBLOCK Crew
+submission: https://t.me/pyblockpool
