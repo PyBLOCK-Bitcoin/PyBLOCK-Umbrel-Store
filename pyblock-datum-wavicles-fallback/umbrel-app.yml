@@ -1,0 +1,58 @@
+manifestVersion: 1.1
+id: pyblock-datum-wavicles-fallback
+category: bitcoin
+name: WAVICLES Fallback
+version: "v1.0.0"
+icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-wavicles.svg
+tagline: PyBLOCK Crew WAVICLES Fallback, Port 23345
+description: >-
+  ⚙️ PyBLOCK WAVICLES Fallback, Port 23345
+
+  Pooled Mode, 0% PyBLOCK.
+
+  A second WAVICLES gateway on its own ports, so you can mine through two nodes and keep going if one of them stops.
+
+  Install PATUM (Knots) and PATUM (Plumb). WAVICLES uses PATUM (Knots) and WAVICLES Fallback uses PATUM (Plumb); with only one of them
+  installed, both gateways use that one. Point your miners at both ports: the one you list first is your main pool and
+  the other your fallback (either way round).
+
+  WAVICLES: stratum+tcp://<your umbrelOS IP>:23342
+  WAVICLES Fallback: stratum+tcp://<your umbrelOS IP>:23345
+
+  In order for DATUM to be fully initialized, you need to add your Bitcoin XBT address in the "Config" tab within the DATUM app.
+  Your in-app credentials can be found by right-clicking on the app icon on your umbrelOS homescreen and selecting "Show default credentials".
+
+developer: PyBLOCK Crew
+website: https://b.pyblock.xyz:8443
+dependencies:
+  - pyblock-bitcoinknots
+repo: https://b.pyblock.xyz:8443
+support: https://t.me/pyblockpool
+port: 21015
+gallery:
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/2.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/wavicles/3.jpg
+path: ""
+defaultUsername: "admin"
+deterministicPassword: true
+releaseNotes: >-
+  First version: a second WAVICLES gateway on port 23345 (web 21015) that prefers PATUM (Plumb), for a main + fallback setup with two nodes.
+widgets:
+  - id: "stats"
+    type: "three-stats"
+    refresh: "30s"
+    endpoint: "datum:21015/umbrel-api"
+    link: ""
+    example:
+      type: "three-stats"
+      link: ""
+      items:
+        - title: "Connections"
+          text: "12"
+          subtext: "Worker"
+        - title: "Hashrate"
+          text: "21"
+          subtext: "TH/s"
+submitter: PyBLOCK Crew
+submission: https://t.me/pyblockpool

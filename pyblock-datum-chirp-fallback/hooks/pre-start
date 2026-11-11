@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+# This pre-start script keeps datum_gateway_config.json in step with Umbrel:
+#   - the node's RPC settings, from PATUM (Knots) or, if that app is not installed, PATUM (Plumb);
+#   - the settings-page password: the default "umbrel" (or none) becomes the app password Umbrel shows
+#     ("admin" / APP_PASSWORD).
+# Until 1.1.1 the hook stopped when the PATUM (Knots) variables were missing (PATUM (Plumb) users), before it
+# reached the password, so the settings page kept "umbrel" while Umbrel showed another password.
+
+APP_DATA_DIR="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")"
+DATUM_CONFIG_FILE="${APP_DATA_DIR}/data/settings/datum_gateway_config.json"
+DESIRED_OWNER="1000:1000"
+
+if [ ! -f "${DATUM_CONFIG_FILE}" ]; then
+  echo "DATUM configuration file not found. Installation incomplete."
+  exit 1
+fi
+echo "Checking DATUM configuration file."
+
+edit() {   # edit <jq filter> [jq args…]: rewrite the config in place, only if jq succeeds
+  local filter="$1"; shift
+  jq "$@" "$filter" "$DATUM_CONFIG_FILE" > "${DATUM_CONFIG_FILE}.tmp" && mv "${DATUM_CONFIG_FILE}.tmp" "$DATUM_CONFIG_FILE"
+}
+
+# Node RPC: the FALLBACK gateway prefers PATUM (Plumb), then PATUM (Knots) — the main app prefers Knots, so with both
+# nodes installed each gateway of the pair builds on a different node.
+if [ -n "${APP_PLUMB_NODE_RPC_USER}" ] && [ -n "${APP_PLUMB_NODE_RPC_PASS}" ] && [ -n "${APP_PLUMB_NODE_NODE_IP}" ] && [ -n "${APP_PLUMB_NODE_RPC_PORT}" ]; then
+  RPC_USER="${APP_PLUMB_NODE_RPC_USER}"; RPC_PASS="${APP_PLUMB_NODE_RPC_PASS}"
+  RPC_URL="${APP_PLUMB_NODE_NODE_IP}:${APP_PLUMB_NODE_RPC_PORT}"; NODE="PATUM (Plumb)"
+elif [ -n "${APP_BITCOIN_KNOTS_RPC_USER}" ] && [ -n "${APP_BITCOIN_KNOTS_RPC_PASS}" ] && [ -n "${APP_BITCOIN_KNOTS_NODE_IP}" ] && [ -n "${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}" ]; then
+  RPC_USER="${APP_BITCOIN_KNOTS_RPC_USER}"; RPC_PASS="${APP_BITCOIN_KNOTS_RPC_PASS}"
+  RPC_URL="${APP_BITCOIN_KNOTS_NODE_IP}:${APP_BITCOIN_KNOTS_INTERNAL_RPC_PORT}"; NODE="PATUM (Knots)"
+fi
+if [ -n "${RPC_URL:-}" ]; then
+  edit '.bitcoind.rpcuser = $user | .bitcoind.rpcpassword = $pass | .bitcoind.rpcurl = $url' \
+    --arg user "$RPC_USER" --arg pass "$RPC_PASS" --arg url "$RPC_URL"
+  echo "DATUM config uses the ${NODE} RPC settings."
+else
+  echo "No PATUM node found (neither PATUM (Knots) nor PATUM (Plumb)); leaving the node settings as they are."
+fi
+
+if jq -e '.mining.pool_address | select(. == "enter your bitcoin address")' "$DATUM_CONFIG_FILE" > /dev/null; then
+  echo "Bitcoin address invalid, resetting."
+  edit '.mining.pool_address = ""'
+fi
+
+if ! jq -e '.api.modify_conf' "$DATUM_CONFIG_FILE" > /dev/null; then
+  edit '.api.modify_conf = true'
+fi
+
+# The settings page logs in as "admin" with the app password Umbrel shows.
+if [ -n "${APP_PASSWORD}" ] && jq -e '(.api.admin_password // "") | . == "umbrel" or . == ""' "$DATUM_CONFIG_FILE" > /dev/null; then
+  edit '.api.admin_password = $password' --arg password "$APP_PASSWORD"
+  echo "Settings page password set to the app password."
+fi
+
+# The ports this version of the app maps (docker-compose.yml). Umbrel does not copy data/ on updates, so an
+# install from before 1.2.0 keeps the old ports in its config; set them here or the gateway would listen on a
+# port nothing maps. 1.2.0 moved CHIRP and WAVICLES off 23339/23340 (and 21009/21010), which other Umbrel DATUM
+# apps also use.
+case "$(basename "${APP_DATA_DIR}")" in
+  pyblock-datum-chirp-fallback) STRATUM_PORT=23344; API_PORT=21014 ;;
+esac
+if [ -n "${STRATUM_PORT:-}" ] && ! jq -e --argjson s "$STRATUM_PORT" --argjson a "$API_PORT" '.stratum.listen_port == $s and .api.listen_port == $a' "$DATUM_CONFIG_FILE" > /dev/null; then
+  edit '.stratum.listen_port = $s | .api.listen_port = $a' --argjson s "$STRATUM_PORT" --argjson a "$API_PORT"
+  echo "Ports set to ${STRATUM_PORT} (miners) and ${API_PORT} (web)."
+fi
+
+# Last, so every rewrite above stays writable by the gateway (it saves the settings page into this file).
+# The gateway saves its settings page by writing a new file next to this one and renaming it, so it needs the
+# folder too.
+chown "${DESIRED_OWNER}" "$(dirname "$DATUM_CONFIG_FILE")" "$DATUM_CONFIG_FILE"
+chmod 600 "$DATUM_CONFIG_FILE"
