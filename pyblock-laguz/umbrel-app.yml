@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.12"
+version: "0.1.13"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,12 +34,10 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Pay BOLT 12 offers (lno1…): paste one in Send, choose the amount if it has none, add an optional
-  note, and Laguz asks the recipient for an invoice and pays it, checked against your balance like
-  any payment. Receive also gives you a reusable Lightning Offer. Lightning node updated to
-  Lightning Fork 0.21.4-beta-blake2b.21.2: the node's restore command for a channel.backup now
-  works (restoring at setup already did), the app no longer loses channel updates, and Multipath
-  TCP listeners are off (CVE-2026-98432).
+  Lightning node updated to Lightning Fork 0.21.6-beta-blake2b.23 (LND 0.21.6): it follows the coinbase
+  maturity of Knots 29.4.3 for coins it receives from mining, and it is built with Go 1.27.4, which fixes a
+  crash in Go's web server (CVE-2026-97054). The hub no longer writes invoice descriptions, metadata or
+  payer notes to its log.
   Same channels, same data, same 24-word recovery phrase: nothing to do.
 widgets:
   - id: "stats"

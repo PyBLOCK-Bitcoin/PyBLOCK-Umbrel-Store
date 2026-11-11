@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"   # the hub has its own unlock password
 
   lnd:
-    image: registry.gitlab.com/astrolexis-group1/laguz/lnd:v0.21.4-beta-blake2b.21.2-laguz1@sha256:344470b9185f143645c5d5275de9dade3e2522ddf68717f89aac88281dd128b6
+    image: registry.gitlab.com/astrolexis-group1/laguz/lnd:v0.21.6-beta-blake2b.23-laguz1@sha256:ebcbd73ae633ce78b948e2a60e42e48ede11422b42687be97b222f695480520a
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 5m
@@ -43,7 +43,7 @@ services:
         ipv4_address: ${APP_LAGUZ_LND_IP}
 
   hub:
-    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.9@sha256:1764b6f7d17a7af19d73de551b166fdf6c6289feb58369bde620ed622980c082
+    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.10@sha256:2f9a8f9570cb6b8cdc080fe762ae66d2c9eef23d49cdffe7b7e5ff109e1e57c9
     user: "1000:1000"
     restart: unless-stopped
     depends_on:
