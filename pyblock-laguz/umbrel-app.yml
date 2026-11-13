@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.13"
+version: "0.1.14"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,10 +34,10 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Lightning node updated to Lightning Fork 0.21.6-beta-blake2b.23 (LND 0.21.6): it follows the coinbase
-  maturity of Knots 29.4.3 for coins it receives from mining, and it is built with Go 1.27.4, which fixes a
-  crash in Go's web server (CVE-2026-97054). The hub no longer writes invoice descriptions, metadata or
-  payer notes to its log.
+  Transaction links now open in a block explorer your browser can reach (mempool.guide by default). Before,
+  "view transaction" pointed at the app's internal chain service and the page could not load. Your wallet
+  still asks only your own node for its data; the explorer only sees a transaction when you open its link.
+  To use your own mempool app instead, set LAGUZ_EXPLORER_URL in the app's docker-compose.yml.
   Same channels, same data, same 24-word recovery phrase: nothing to do.
 widgets:
   - id: "stats"

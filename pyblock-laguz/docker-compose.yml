@@ -43,7 +43,7 @@ services:
         ipv4_address: ${APP_LAGUZ_LND_IP}
 
   hub:
-    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.10@sha256:2f9a8f9570cb6b8cdc080fe762ae66d2c9eef23d49cdffe7b7e5ff109e1e57c9
+    image: registry.gitlab.com/astrolexis-group1/laguz/hub:0.1.11@sha256:e9c3864c7e6730b0d3eb9aef0ec1adca9f4c6710724504f773671f15ccbf7d63
     user: "1000:1000"
     restart: unless-stopped
     depends_on:
@@ -60,7 +60,8 @@ services:
       LND_MACAROON_FILE: /lnd/data/chain/bitcoin/mainnet/admin.macaroon
       LND_WALLET_PASSWORD_FILE: /lnd/wallet.pw   # first run: the hub creates the LND wallet (GenSeed + InitWallet) with it
       LND_CONF_FILE: ""
-      MEMPOOL_API: http://pyblock-laguz_mempool_1:8032/api
+      MEMPOOL_API: http://pyblock-laguz_mempool_1:8032/api   # the hub's own chain backend (internal; wallet queries stay on your node)
+      LAGUZ_EXPLORER_URL: https://mempool.guide              # explorer opened by "view transaction" links; your own mempool: http://umbrel.local:3006
       RELAY: wss://nostr.pyblock.xyz:8443
       LAGUZ_PRICE_URL: https://b.pyblock.xyz:8443/api/app/blake2b_widgets.php
       AUTO_LINK_ALBY_ACCOUNT: "false"
