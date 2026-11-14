@@ -22,3 +22,16 @@ PATUM Plumb 9 (2026-11-01): the base is upstream `ghcr.io/plumb-node/umbrel-plum
 (`sha256:e8f8af21…`). Its `bitcoind` is byte-identical to the signed release tarballs (SHA256SUMS signed by Jason
 Sopko 89F0E41D…C40CD1BA): x86_64 `33a9dfafdc8b834c…`, aarch64 `02b24c2a0807fd35…`; so is the one in our image
 `umbrel-plumb:v29.4.3.knots20260508.plumb9-pyblock1@sha256:9611e292…`.
+
+PATUM Plumb 10 (2026-11-14): the base is upstream `ghcr.io/plumb-node/umbrel-plumb:v29.5.knots20260508.plumb10`
+(`sha256:a090e690…`), on Bitcoin Knots 29.5. Its `bitcoind` is byte-identical to the signed release tarballs
+(SHA256SUMS signed by Jason Sopko 89F0E41D…C40CD1BA): x86_64 `23eb2a3390cda97b…`, aarch64 `db875b063ce02cbb…`.
+Upstream now ships Node.js 24 and current web-panel dependencies (and no npm), so this one is built with
+`Dockerfile.apt`: Debian security updates only (apt, tzdata), Node.js and everything else unchanged.
+
+```
+docker buildx build --platform linux/amd64,linux/arm64 \
+  --build-arg BASE=ghcr.io/plumb-node/umbrel-plumb@sha256:a090e6901a60b0f10455e9fe972c28169f2f07bc1d51a7367f767edf5a69a606 \
+  -f images/patum-refresh/Dockerfile.apt \
+  -t registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-plumb:v29.5.knots20260508.plumb10-pyblock1 --push images/patum-refresh
+```

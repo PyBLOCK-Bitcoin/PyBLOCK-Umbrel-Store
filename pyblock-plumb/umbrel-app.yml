@@ -7,7 +7,7 @@ storage:
   dataRoot: data
 category: bitcoin
 name: PATUM (Plumb)
-version: "29.4.3.knots20260508.plumb9"
+version: "29.5.knots20260508.plumb10"
 tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
@@ -43,12 +43,12 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Plumb 9, the signed release by Jason Sopko on Bitcoin Knots 29.4.3. What changed: -rejecttokenmessages now comes
-  from Knots (knots#489) and refuses the same messages as before; -rejectfakemultisig counts a key only when a
-  signature in the spend really verified against it (knots#470); the penalty spend of an LND simple taproot channel
-  is accepted again within -datacarriersize (knots#487, -permitlnrevokeleaf, on by default); and a peer with the
-  download permission keeps syncing blocks past the fork (knots#488). Consensus is unchanged. The user agent now
-  ends in /Plumb:9/. Same data and settings: nothing else to do.
+  Plumb 10, the signed release by Jason Sopko, now on Bitcoin Knots 29.5 (network, I/O and mempool fixes; consensus
+  is unchanged). -rejectfakeoutputs no longer refuses a payment to a vanity address whose hash or key starts with
+  up to seven zero bytes, and analyzepsbt follows -rejectfakeoutputs=0. A peer still on the SHA256d chain is no
+  longer served headers and blocks past the fork, even with the download permission (knots#488). The filters are
+  the same as in Plumb 9. The user agent now reads /Satoshi:29.5.0/Knots:20260508/PATUM:1.0.6(...)/Plumb:10/.
+  Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
     type: "four-stats"

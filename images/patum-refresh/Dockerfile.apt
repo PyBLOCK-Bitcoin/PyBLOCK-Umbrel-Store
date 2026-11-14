@@ -1,0 +1,9 @@
+# syntax=docker/dockerfile:1
+# PATUM (Plumb) from plumb10 on: the upstream image already ships Node.js 24 and current web-panel dependencies (and no npm),
+# so only Debian's pending security updates are applied. Node.js, bitcoind, the UI and the settings are unchanged.
+#   docker buildx build --platform linux/amd64,linux/arm64 --build-arg BASE=<image@sha256:…> -f images/patum-refresh/Dockerfile.apt -t <tag> images/patum-refresh
+ARG BASE
+FROM ${BASE}
+USER root
+RUN set -eux; apt-get update; DEBIAN_FRONTEND=noninteractive apt-get -y upgrade; apt-get clean; rm -rf /var/lib/apt/lists/*; \
+    node -e "import('/app/node_modules/zeromq/lib/index.js').then(()=>console.log('zeromq ok'))"
