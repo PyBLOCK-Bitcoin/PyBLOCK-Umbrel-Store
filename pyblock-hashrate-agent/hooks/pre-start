@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# PyBLØCK hashrate agent pre-start: the data folder (config.json, nostr.key) must belong to the app user (1000).
+APP_DATA_DIR="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")/data"
+mkdir -p "${APP_DATA_DIR}"
+chown -R 1000:1000 "${APP_DATA_DIR}"
+chmod 700 "${APP_DATA_DIR}"

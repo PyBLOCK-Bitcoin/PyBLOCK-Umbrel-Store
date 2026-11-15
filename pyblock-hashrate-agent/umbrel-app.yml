@@ -1,0 +1,46 @@
+manifestVersion: 1.1
+id: pyblock-hashrate-agent
+category: bitcoin
+name: PyBLØCK Hashrate Agent
+version: "0.3.2"
+tagline: Rent out your BLAKE2b rig on Nostr, paid per tranche in Lightning XBT
+icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-hashrate-agent.svg
+description: >-
+  The miner's side of the PyBLØCK hashrate market on Nostr. Rent out your BLAKE2b rig peer to peer, with no
+  marketplace holding the money.
+
+
+  Point your rig at your Umbrel on port 23350. When nobody rents it, the agent sends it to your own pool. It
+  publishes a signed listing of the rig on Nostr with a BOLT12 offer from your Laguz wallet. A buyer pays each
+  tranche in advance, and the hash only goes to the buyer's DATUM gateway after the payment is settled in your
+  wallet. If a tranche is not paid in time, the rig comes back home.
+
+
+  Open the app and fill in the settings: a receive-only wallet CONNECTION from Laguz (Connections → new app with
+  get_info, make_invoice, lookup_invoice and list_transactions, budget 0; not your BOLT12 offer), your home pool,
+  your rig's hashrate, price and tranche (the form shows what a buyer pays per tranche, hour and day), and a
+  settings password. The status page stays read-only. For a PyBLØCK pool app on this Umbrel, use its container as the home pool
+  (for example pyblock-datum-chirp_datum_1, port 23341, with your address as the user).
+
+
+  Back up the data folder: it holds your seller identity (nostr.key).
+
+
+  Source: https://gitlab.com/astrolexis-group1/pyblock-hashrate-agent
+developer: PyBLOCK Crew
+website: https://b.pyblock.xyz:8443/market_nostr.php
+dependencies:
+  - pyblock-laguz
+repo: https://gitlab.com/astrolexis-group1/pyblock-hashrate-agent
+support: https://t.me/pyblockpool
+port: 2179
+gallery:
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/hashrate-agent/1.jpg
+  - https://b.pyblock.xyz:8443/assets/umbrel/gallery/hashrate-agent/2.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  First release: list your BLAKE2b rig on Nostr and rent it out per tranche, paid in Lightning XBT with BOLT12 from your Laguz wallet. Set it up from the web page (settings behind a password, read-only status), with live cost, an optional signed webhook, an offline listing while the rig is away, and a reproducible image.
+submitter: PyBLOCK Crew
+submission: https://t.me/pyblockpool

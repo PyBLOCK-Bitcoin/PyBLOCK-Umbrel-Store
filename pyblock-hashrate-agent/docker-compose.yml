@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: pyblock-hashrate-agent_web_1
+      APP_PORT: 8080
+      # Umbrel's login stays in front: the settings page has no password of its own
+
+  web:
+    image: registry.gitlab.com/astrolexis-group1/pyblock-hashrate-agent/agent:0.3.2@sha256:07840fb7f2c79672da3542c989ce08383470548f6a479271a06ebdda56d6c9de
+    user: "1000:1000"
+    init: true
+    # settings saved from the page → the agent exits (code 3) and comes back with them
+    restart: on-failure
+    stop_grace_period: 15s
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    ports:
+      # stratum for your rigs: point them at <umbrel-ip>:23350
+      - 23350:3333
+    environment:
+      PB_AGENT_DIR: /data
+      PB_STATUS_BIND: "0.0.0.0"
+      PB_STATUS_PORT: "8080"
