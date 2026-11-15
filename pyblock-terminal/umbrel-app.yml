@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-terminal
 category: bitcoin
 name: PyBLØCK Terminal
-version: "5.2.1"
+version: "5.2.3"
 tagline: The PyBLØCK dashboard for your XBT node, in the browser
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-terminal.svg
 description: >-
@@ -34,6 +34,6 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  First release in the PyBLØCK store: PyBLØCK 5.2.1 in the browser, connected to your PATUM node with no setup.
+  PyBLØCK 5.2.3: the YOUR NODE panel checks that it is talking to a BLAKE2b node, even while the node is still syncing, and tells you if it is pointed at the wrong node. The Setup node test checks it too, and the bitcoin-cli command may carry arguments (for example -datadir).
 submitter: PyBLOCK Crew
 submission: https://t.me/pyblockpool

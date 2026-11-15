@@ -8,7 +8,7 @@ services:
       # Umbrel's login stays in front: the web terminal has no password of its own
 
   web:
-    image: registry.gitlab.com/astrolexis-group1/pyblock/terminal:5.2.1@sha256:5fd831fbd89fd75087186ff3b79328369fc52ce3155840c70a2a855bec018377
+    image: registry.gitlab.com/astrolexis-group1/pyblock/terminal:5.2.3@sha256:662dae9f19d781f9b34fecb1f87842a11e1d607fc3cafa73650351c9066362b8
     user: "1000:1000"
     init: true
     restart: on-failure
