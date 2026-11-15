@@ -2,12 +2,12 @@ manifestVersion: 1.1
 id: pyblock-hashrate-agent
 category: bitcoin
 name: PyBLØCK Hashrate Agent
-version: "0.3.2"
-tagline: Rent out your BLAKE2b rig on Nostr, paid per tranche in Lightning XBT
+version: "0.4.0"
+tagline: Rent out your BLAKE2b rig on Nostr, or rent hashrate, paid per tranche in Lightning XBT
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-hashrate-agent.svg
 description: >-
-  The miner's side of the PyBLØCK hashrate market on Nostr. Rent out your BLAKE2b rig peer to peer, with no
-  marketplace holding the money.
+  The PyBLØCK hashrate market on Nostr (P2Hash). Rent out your BLAKE2b rig, rent other people's rigs, or both,
+  peer to peer, with no marketplace holding the money.
 
 
   Point your rig at your Umbrel on port 23350. When nobody rents it, the agent sends it to your own pool. It
@@ -23,12 +23,18 @@ description: >-
   (for example pyblock-datum-chirp_datum_1, port 23341, with your address as the user).
 
 
-  Back up the data folder: it holds your seller identity (nostr.key).
+  Rent tab (optional): turn on "Rent hashrate" in the settings. You need a SEPARATE Laguz wallet connection that can
+  pay, with a budget; your DATUM gateway; caps per rental and per 24 h; and port 23351 forwarded on your router to
+  this Umbrel (sellers' rigs send the hash there). The agent pays each tranche only while it measures the hash on
+  your gateway, so you risk one tranche at most.
+
+
+  Back up the data folder: it holds your identities (nostr.key, nostr-buyer.key).
 
 
   Source: https://gitlab.com/astrolexis-group1/pyblock-hashrate-agent
 developer: PyBLOCK Crew
-website: https://b.pyblock.xyz:8443/market_nostr.php
+website: https://b.pyblock.xyz:8443/p2hash.php
 dependencies:
   - pyblock-laguz
 repo: https://gitlab.com/astrolexis-group1/pyblock-hashrate-agent
@@ -41,6 +47,6 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  First release: list your BLAKE2b rig on Nostr and rent it out per tranche, paid in Lightning XBT with BOLT12 from your Laguz wallet. Set it up from the web page (settings behind a password, read-only status), with live cost, an optional signed webhook, an offline listing while the rig is away, and a reproducible image.
+  0.4.0: new Rent tab. The same app can now rent other people's rigs: listings, caps per rental and per 24 h, a separate paying wallet connection, a meter that measures the rented hash on your DATUM gateway (port 23351, forward it on your router), payment per tranche only while the hash arrives, live dashboard, Stop and history. Selling works as before.
 submitter: PyBLOCK Crew
 submission: https://t.me/pyblockpool
