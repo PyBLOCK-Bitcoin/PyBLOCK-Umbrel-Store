@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-hashrate-agent
 category: bitcoin
 name: PyBLØCK Hashrate Agent
-version: "0.4.1"
+version: "0.4.3"
 tagline: Rent out your BLAKE2b rig on Nostr, or rent hashrate, paid per tranche in Lightning XBT
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-hashrate-agent.svg
 description: >-
@@ -47,6 +47,6 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  0.4.1: if your home pool is the PyBLØCK Market, the agent now asks the Market every minute whether it has rented your rig. While the Market has it rented, the listing on Nostr says "rented" and Nostr requests are refused ("rented on the PyBLØCK Market until HH:MM UTC"), so the rig is never rented twice. The status page shows it. Nothing changes for other home pools.
+  0.4.3: new pages. The Rent tab shows a live chart of the hashrate your own meter measured, against what the rig advertises and the minimum that keeps the payments going, with what you paid, the time left and the next payment. The Status tab now shows your rig's hashrate over the last 24 hours, with the rented periods shaded, what you earned and the running rental. The first setup is a step-by-step wizard. From this version on, the app tells you when a newer version is out: the notice is signed by PyBLØCK and read from your own relays.
 submitter: PyBLOCK Crew
 submission: https://t.me/pyblockpool

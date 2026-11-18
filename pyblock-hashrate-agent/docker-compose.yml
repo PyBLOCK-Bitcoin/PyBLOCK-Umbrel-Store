@@ -8,7 +8,7 @@ services:
       # Umbrel's login stays in front: the settings page has no password of its own
 
   web:
-    image: registry.gitlab.com/astrolexis-group1/pyblock-hashrate-agent/agent:0.4.1@sha256:a1a80dd3611f030f5b9e6798bed8ecf603376ff276db30d9bbc75aea982e6833
+    image: registry.gitlab.com/astrolexis-group1/pyblock-hashrate-agent/agent:0.4.3@sha256:451e90eae70a532daee0211045b4abdc8c2ea066a25c2a0083d95daecb8b5319
     user: "1000:1000"
     init: true
     # settings saved from the page → the agent exits (code 3) and comes back with them
@@ -26,3 +26,5 @@ services:
       PB_STATUS_BIND: "0.0.0.0"
       PB_STATUS_PORT: "8080"
       PB_PUBLIC_PORT_HINT: "23351"
+      # which update instructions the new-version notice shows
+      PB_PLATFORM: "umbrel"
