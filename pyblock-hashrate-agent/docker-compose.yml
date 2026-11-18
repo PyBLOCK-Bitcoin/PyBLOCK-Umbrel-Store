@@ -8,7 +8,7 @@ services:
       # Umbrel's login stays in front: the settings page has no password of its own
 
   web:
-    image: registry.gitlab.com/astrolexis-group1/pyblock-hashrate-agent/agent:0.4.3@sha256:451e90eae70a532daee0211045b4abdc8c2ea066a25c2a0083d95daecb8b5319
+    image: registry.gitlab.com/astrolexis-group1/pyblock-hashrate-agent/agent:0.4.4@sha256:1e43b6f0c3ab6b58e1f159c6cfe5b0f125bdadd95c1c58e1bc543d1e4a2d0e6d
     user: "1000:1000"
     init: true
     # settings saved from the page → the agent exits (code 3) and comes back with them
