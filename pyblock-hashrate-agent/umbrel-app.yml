@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-hashrate-agent
 category: bitcoin
 name: PyBLØCK Hashrate Agent
-version: "0.4.4"
+version: "0.4.5"
 tagline: Rent out your BLAKE2b rig on Nostr, or rent hashrate, paid per tranche in Lightning XBT
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-hashrate-agent.svg
 description: >-
@@ -47,6 +47,6 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  0.4.4: fixes two dead ends in the pages. After "Check the path" or "Stop" the tabs and buttons pointed to the wrong address (Settings answered "not found"), and a form left open across a restart or an update answered a bare "stale form" text; now you get the fresh page with the reason. 0.4.3 brought the new pages: live charts of the measured hashrate for buyers and sellers, a step-by-step setup and a signed new-version notice read from your own relays.
+  0.4.5: before asking a seller for a rental the agent now reads the budget left in your paying wallet connection, and refuses to start a rental the wallet could not finish paying (it tells you how many tranches the budget covers). The Rent tab shows the budget left. 0.4.4 fixed the tabs after "Check the path" or "Stop" and the bare "stale form" text; 0.4.3 brought the new pages (live charts, step-by-step setup) and the signed new-version notice.
 submitter: PyBLOCK Crew
 submission: https://t.me/pyblockpool
