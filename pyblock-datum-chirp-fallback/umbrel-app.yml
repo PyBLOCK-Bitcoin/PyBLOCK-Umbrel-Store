@@ -2,13 +2,15 @@ manifestVersion: 1.1
 id: pyblock-datum-chirp-fallback
 category: bitcoin
 name: CHIRP Fallback
-version: "v1.0.0"
+version: "v1.1.0"
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-datum-chirp.svg
 tagline: PyBLOCK Crew CHIRP Fallback, Port 23344
 description: >-
   ⚙️ PyBLOCK CHIRP Fallback, Port 23344
 
   Pooled Mode, 0% PyBLOCK.
+
+  Backup pool: if CHIRP is lost for 5 minutes, the gateway mines for WAVICLES until CHIRP has been back for 10 minutes. Your miners change nothing.
 
   A second CHIRP gateway on its own ports, so you can mine through two nodes and keep going if one of them stops.
 
@@ -37,7 +39,7 @@ path: ""
 defaultUsername: "admin"
 deterministicPassword: true
 releaseNotes: >-
-  First version: a second CHIRP gateway on port 23344 (web 21014) that prefers PATUM (Plumb), for a main + fallback setup with two nodes.
+  Backup pool: when CHIRP has been lost for 5 minutes and WAVICLES answers, the gateway is pointed at WAVICLES (a few seconds without work; your miners, payout address and name stay as they are) and goes back once CHIRP has answered for 10 minutes without a break, or right away if WAVICLES is lost. Until now miners were refused while the pool was down. Every move is in the app's log. DATUM Gateway v0.5.0beta (CONVOY 69c61a9), as before.
 widgets:
   - id: "stats"
     type: "three-stats"

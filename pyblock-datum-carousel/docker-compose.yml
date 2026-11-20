@@ -8,8 +8,9 @@ services:
 
   datum:
     image: registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/datum-convoy:v0.5.0beta-69c61a9@sha256:bfdafe66882862dc3351fc82913675bab1698e5325d8e016b00ad250473c3bb6
-    entrypoint: ["/app/datum_gateway"]
-    command: ["--config=/app/conf/datum_gateway_config.json"]
+    # poolwatch.sh runs the gateway and moves it to the backup pool while its own pool is lost (see the file).
+    entrypoint: ["bash", "/app/poolwatch.sh"]
+    command: ["/app/conf/datum_gateway_config.json", "21008", "carousel", "wavicles"]
     user: 1000:1000
     restart: on-failure
     # Match Debian's DATUM Gateway systemd service (LimitNOFILE=65535).
@@ -19,6 +20,7 @@ services:
         hard: 65535
     volumes:
       - ${APP_DATA_DIR}/data/settings/:/app/conf/
+      - ${APP_DATA_DIR}/poolwatch.sh:/app/poolwatch.sh:ro
     ports:
       # datum gateway port
       - 23338:23338

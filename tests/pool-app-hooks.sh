@@ -39,6 +39,16 @@ for app in carousel chirp wavicles carousel-fallback chirp-fallback wavicles-fal
   grep -q "APP_PORT: $A\$" "pyblock-datum-$app/docker-compose.yml" && ok || bad "$app: compose APP_PORT is not $A"
   grep -q -- "- $S:$S\$" "pyblock-datum-$app/docker-compose.yml" && ok || bad "$app: compose does not map $S"
 
+  # 2026-11-20 pool watch (backup pool): one poolwatch.sh, the same in every app, run with this app's web port, its
+  # pool and the backup (CHIRP/CAROUSEL → WAVICLES, WAVICLES → CHIRP); the config it rewrites is the mounted one.
+  cmp -s pyblock-datum-chirp/poolwatch.sh "pyblock-datum-$app/poolwatch.sh" && ok || bad "$app: poolwatch.sh differs from pyblock-datum-chirp's"
+  bash -n "pyblock-datum-$app/poolwatch.sh" && ok || bad "$app: poolwatch.sh has a syntax error"
+  pool=${app%-fallback}; case $pool in wavicles) bk=chirp ;; *) bk=wavicles ;; esac
+  grep -q "command: \[\"/app/conf/datum_gateway_config.json\", \"$A\", \"$pool\", \"$bk\"\]" "pyblock-datum-$app/docker-compose.yml" && ok || bad "$app: compose command is not config/$A/$pool/$bk"
+  grep -q 'entrypoint: \["bash", "/app/poolwatch.sh"\]' "pyblock-datum-$app/docker-compose.yml" && ok || bad "$app: compose entrypoint is not the pool watch"
+  grep -q -- '- ${APP_DATA_DIR}/poolwatch.sh:/app/poolwatch.sh:ro$' "pyblock-datum-$app/docker-compose.yml" && ok || bad "$app: poolwatch.sh is not mounted"
+  jq -e ".datum.pool_port == $(case $pool in wavicles) echo 28915;; carousel) echo 28916;; chirp) echo 28917;; esac)" "pyblock-datum-$app/data/settings/datum_gateway_config.json" > /dev/null && ok || bad "$app: config pool_port is not $pool's"
+
   f=$(run "$app" '.mining.pool_address="bc1qkeep" | .api.admin_password="umbrel"' "${PLUMB[@]}")
   check "$app plumb" "$f" '.api.admin_password=="app-pw" and .bitcoind.rpcurl=="10.21.21.110:10332" and .mining.pool_address=="bc1qkeep"'
   f=$(run "$app" '.api.admin_password=""' "${KNOTS[@]}")
