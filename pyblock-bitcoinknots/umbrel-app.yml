@@ -4,7 +4,7 @@ category: bitcoin
 name: PATUM (Knots)
 implements:
   - bitcoin
-version: "1.0.6"
+version: "1.0.7"
 tagline: PyBLOCK Crew XBT PATUM Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-patum.svg
 description: >-
@@ -30,11 +30,13 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Bitcoin Knots 29.5 (v29.5.knots20260508), the official release binaries (SHA256SUMS signed by Luke Dashjr).
-  Same consensus rules as 29.4.3 (BLAKE2b proof of work, rolling ~180-day coinbase maturity): the update is
-  about networking, I/O and mempool policy, so the node keeps its chain and does not reindex. User agent now
-  /Satoshi:29.5.0/Knots:20260508/PATUM:1.0.6(https://b.pyblock.xyz:8443)/. Earlier Knots versions stay
-  available in Settings for anyone who pinned one. Same data and settings: nothing else to do.
+  Bitcoin Knots 29.5.1 (v29.5.1.knots20260508), the official release binaries (SHA256SUMS signed by Luke Dashjr).
+  Fixes CVE-2026-117348, where a peer could stall the node by announcing an orphan transaction with many missing
+  parents. Stricter spam filters: keys count toward the datacarrier limit unless a signature is verified against
+  them, and script reuse inside a package is rejected. The BLAKE2b fork rules are now separate flags and the annex
+  stays banned on every input; no block since the fork uses one, so the node keeps its chain and does not reindex.
+  User agent now /Satoshi:29.5.1/Knots:20260508/PATUM:1.0.7(https://b.pyblock.xyz:8443)/. Earlier Knots versions
+  stay available in Settings for anyone who pinned one. Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
     type: "four-stats"

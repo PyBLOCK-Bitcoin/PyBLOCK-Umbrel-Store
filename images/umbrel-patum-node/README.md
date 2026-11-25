@@ -1,20 +1,20 @@
-# umbrel-patum-node image (PATUM (Knots), Bitcoin Knots 29.5)
+# umbrel-patum-node image (PATUM (Knots), Bitcoin Knots 29.5.1)
 
-`registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-knots29.5-pyblock1@sha256:abc2da0e2efc6d59d5e3934dd39ec6c4574b997b8ca51c945356659af8b651b6`
+`registry.gitlab.com/astrolexis-group1/pyblock-umbrel-store/umbrel-patum-node:1.2.20-knots29.5.1-pyblock1`
 (linux/amd64 + linux/arm64; pin the index digest the push prints in `pyblock-bitcoinknots/docker-compose.yml`).
 
-It is our `umbrel-patum-node:1.2.20-knots29.4.3-pyblock1` (index `sha256:a16f1cb5…`, already security-refreshed, with
-29.4.3) plus `bitcoind` and `bitcoin-cli` of Bitcoin Knots `v29.5.knots20260508` as the new "latest". These are the
-OFFICIAL release binaries: `SHA256SUMS` carries a valid signature by Luke Dashjr (1A3E761F19D2CC7785C5502EA291A2C45D0C504A)
-and the tarballs match it. Consensus code is the same as 29.4.3 (network/IO/build changes and mempool policy knots#400),
-so an existing datadir upgrades without a reindex. Earlier versions stay installed for anyone who pinned one in the
-app's settings.
+It is our `umbrel-patum-node:1.2.20-knots29.5-pyblock1` (index `sha256:abc2da0e…`, the PATUM (Knots) 1.0.6 image) plus
+`bitcoind` and `bitcoin-cli` of Bitcoin Knots `v29.5.1.knots20260508` as the new "latest". These are the OFFICIAL release
+binaries: `SHA256SUMS` carries a valid signature by Luke Dashjr (1A3E761F19D2CC7785C5502EA291A2C45D0C504A) and the
+tarballs match it. 29.5.1 fixes CVE-2026-117348 and tightens mempool policy (knots#298, #470, #514); knots#520 splits the
+BLAKE2b fork rules into separate flags and keeps the annex banned on every input (no block since 961640 uses one), so an
+existing datadir upgrades without a reindex. Earlier versions stay installed for anyone who pinned one in the settings.
 
 - Build: put `bitcoind` and `bitcoin-cli` from the tarballs below in `bin/amd64/` and `bin/arm64/` (not committed), then
   `docker buildx build --platform linux/amd64,linux/arm64 -t <tag> --push .`
 
 Release tarball SHA-256 (from the signed SHA256SUMS):
-- 2e0c1a9f52d76ed1fa8ad3efce5d52dfacae1dfb161558c85ef37c9379ba3d13  bitcoin-29.5.knots20260508-x86_64-linux-gnu.tar.gz
-- 47eb609d25f6de326dd0caaaab2cc093c3cc05540e18f203a6d8f60e33277569  bitcoin-29.5.knots20260508-aarch64-linux-gnu.tar.gz
+- 7a15eca0ea948d3ec162e571551374ebe4b41e5c0daa88f58d48a03ef3f1b93a  bitcoin-29.5.1.knots20260508-x86_64-linux-gnu.tar.gz
+- 7d60e2245e7a26539b1e166a4daa3546dea99e310d868f693cc65739c7051793  bitcoin-29.5.1.knots20260508-aarch64-linux-gnu.tar.gz
 
-bitcoind SHA-256: x86_64 `4eb2bf6cd9e50c64…`, aarch64 `461dc20d6eb6eef8…`.
+bitcoind SHA-256: x86_64 `b5c1693a91fcad37…`, aarch64 `7f932c9a815ed596…`.
