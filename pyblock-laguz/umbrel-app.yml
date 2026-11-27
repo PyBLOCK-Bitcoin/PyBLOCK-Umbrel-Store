@@ -2,7 +2,7 @@ manifestVersion: 1.1
 id: pyblock-laguz
 category: bitcoin
 name: Laguz
-version: "0.1.14"
+version: "0.1.15"
 tagline: PyBLOCK Crew XBT Lightning Node Blake2b
 icon: https://b.pyblock.xyz:8443/assets/umbrel/pyblock-laguz.svg
 description: >-
@@ -34,10 +34,9 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Transaction links now open in a block explorer your browser can reach (mempool.guide by default). Before,
-  "view transaction" pointed at the app's internal chain service and the page could not load. Your wallet
-  still asks only your own node for its data; the explorer only sees a transaction when you open its link.
-  To use your own mempool app instead, set LAGUZ_EXPLORER_URL in the app's docker-compose.yml.
+  Security fixes from Alby Hub 1.24.7 (crashes). Apps can now cap how long a payment may stay locked
+  (pay_invoice max_cltv over Nostr Wallet Connect; the hub advertises laguz_max_cltv), which you need to be
+  a maker on PyBLOCK Exchange. Two wallets of the same hub can now pay each other's BOLT 12 offers.
   Same channels, same data, same 24-word recovery phrase: nothing to do.
 widgets:
   - id: "stats"
