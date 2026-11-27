@@ -7,7 +7,7 @@ storage:
   dataRoot: data
 category: bitcoin
 name: PATUM (Plumb)
-version: "29.5.1.knots20260508.plumb15"
+version: "29.5.1.knots20260508.plumb16"
 tagline: PyBLOCK Crew XBT PATUM Plumb Node Blake2b
 description: >-
   Plumb is Bitcoin Knots plus the spam filters its maintainers have reviewed,
@@ -43,12 +43,11 @@ gallery:
 path: ""
 defaultPassword: ""
 releaseNotes: >-
-  Plumb 15, the signed release by Jason Sopko, now on Bitcoin Knots 29.5.1: fixes CVE-2026-117348 (a peer could
-  stall the node with orphan transactions) and makes the spam filters stricter (keys count toward the datacarrier
-  limit unless a signature is verified against them; script reuse inside a package is rejected). Plumb 15 also fixes
-  -rejectunverifiedwitness, which counted a signature-sized push as a proven key and let data past -datacarriersize.
-  The BLAKE2b fork rules are now separate flags and the annex stays banned on every input; no block since the fork
-  uses one, so the node keeps its chain. User agent now /Satoshi:29.5.1/Knots:20260508/PATUM:1.0.7(...)/Plumb:15/.
+  Plumb 16, the signed release by Jason Sopko (same Bitcoin Knots 29.5.1 base as Plumb 15): -rejectbpub now finds
+  fake multisig keys anywhere in a witness script, including reveals that put OP_1 OP_EQUAL after the multisig
+  (knots#525). Those transactions, about 50 kvB each with 325 inputs, were still relayed and mined by Plumb 15 and
+  have filled blocks since height 983334; your node now refuses them. Only mempool policy changes, so the node keeps
+  its chain. User agent now /Satoshi:29.5.1/Knots:20260508/PATUM:1.0.7(...)/Plumb:16/.
   Same data and settings: nothing else to do.
 widgets:
   - id: "stats"
